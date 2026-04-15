@@ -1,4 +1,20 @@
 User-agent: *
 Allow: /
+Disallow: /images/CV-KAKPO-Rosaire.pdf
+Disallow: /images/certificate-rosaire-kakpo.pdf
 
-Sitemap: https://rosairekakpo.vercel.app/sitemap.xml
+# Sitemap
+Sitemap: https://portfolio-rosaire-kakpo.vercel.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
