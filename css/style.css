@@ -1040,11 +1040,6 @@ section {
         text-align: center;
     }
 
-    .profile-image-container {
-        display: flex;
-        margin: 0 auto 2rem;
-    }
-
     .hero-name {
         font-size: 2.8rem;
     }
@@ -1059,6 +1054,7 @@ section {
     }
 
     .hero-image {
+        display: flex !important;
         order: -1;
         margin-bottom: 2rem;
     }
