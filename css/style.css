@@ -1045,23 +1045,24 @@ section {
     }
 
     .hero-image {
-        display: none;
+        order: -1;
+        margin-bottom: 2rem;
     }
 
     .profile-image-container {
-        width: 250px;
-        height: 250px;
-        margin: 2rem auto;
+        width: 280px;
+        height: 280px;
+        margin: 0 auto;
     }
 
     .profile-image {
-        width: 220px;
-        height: 220px;
+        width: 250px;
+        height: 250px;
     }
 
     .profile-ring {
-        width: 240px;
-        height: 240px;
+        width: 270px;
+        height: 270px;
     }
 
     .section-title {
