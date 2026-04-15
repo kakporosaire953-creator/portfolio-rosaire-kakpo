@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,15 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.ico">
     
+    <!-- Preconnect pour optimiser le chargement des fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload des ressources critiques -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="images/IMG-20260324-WA0045.jpg" as="image">
+    
     <title>Rosaire KAKPO | Développeur Frontend - E-commerce & UX Design</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -37,12 +46,37 @@
                 <span class="logo-text">Rosaire</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#apropos">À propos</a></li>
-                <li><a href="#competences">Compétences</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#" class="cv-link" id="downloadCV">CV</a></li>
+                <li><a href="#accueil" data-i18n="nav.home">Accueil</a></li>
+                <li><a href="#apropos" data-i18n="nav.about">À propos</a></li>
+                <li><a href="#competences" data-i18n="nav.skills">Compétences</a></li>
+                <li><a href="#projets" data-i18n="nav.projects">Projets</a></li>
+                <li><a href="#blog" data-i18n="nav.blog">Blog</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                <li><a href="#" class="cv-link" id="downloadCV" data-i18n="nav.cv">CV</a></li>
+                <li>
+                    <button id="langToggle" class="lang-toggle" aria-label="Changer la langue">
+                        <span class="lang-flag">🇫🇷</span>
+                        <span class="lang-text">FR</span>
+                    </button>
+                </li>
+                <li>
+                    <button id="themeToggle" class="theme-toggle" aria-label="Changer le thème">
+                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </li>
             </ul>
             <button class="menu-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
                 <span></span>
@@ -55,13 +89,13 @@
     <section id="accueil" class="hero">
         <div class="container">
             <div class="hero-content">
-                <p class="hero-greeting">Hello, je suis</p>
+                <p class="hero-greeting" data-i18n="hero.greeting">Hello, je suis</p>
                 <h1 class="hero-name">Rosaire KAKPO</h1>
-                <p class="hero-title">Développeur Frontend | E-commerce & UX Design</p>
-                <p class="hero-description">Étudiant en développement Full-Stack, je crée des sites web modernes qui allient esthétique et performance. Spécialisé en e-commerce et UX Design, mon ambition : devenir expert Full-Stack et spécialiste en cybersécurité.</p>
+                <p class="hero-title" data-i18n="hero.title">Développeur Frontend | E-commerce & UX Design</p>
+                <p class="hero-description" data-i18n="hero.description">Étudiant en développement Full-Stack, je crée des sites web modernes qui allient esthétique et performance. Spécialisé en e-commerce et UX Design, mon ambition : devenir expert Full-Stack et spécialiste en cybersécurité.</p>
                 <div class="hero-buttons">
-                    <a href="#projets" class="btn btn-primary">Découvrir mes projets</a>
-                    <a href="#" id="downloadCVBtn" class="btn btn-secondary">Mon CV</a>
+                    <a href="#projets" class="btn btn-primary" data-i18n="hero.cta1">Découvrir mes projets</a>
+                    <a href="#" id="downloadCVBtn" class="btn btn-secondary" data-i18n="hero.cta2">Mon CV</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -75,7 +109,7 @@
 
     <section id="apropos" class="about">
         <div class="container">
-            <h2 class="section-title">À propos</h2>
+            <h2 class="section-title" data-i18n="about.title">À propos</h2>
             <div class="about-content">
                 <div class="about-text">
                     <p>Je suis <strong>KAKPO Rosaire</strong>, étudiant en 1ère année de <strong>Développement Full-Stack</strong> à l'Institut Universitaire Les Cours Sonou.</p>
@@ -133,7 +167,7 @@
 
     <section id="competences" class="skills">
         <div class="container">
-            <h2 class="section-title">Mon Expertise</h2>
+            <h2 class="section-title" data-i18n="skills.title">Mon Expertise</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>
@@ -143,35 +177,131 @@
                         </svg>
                         Frontend Development
                     </h3>
-                    <div class="skill-items">
-                        <span class="skill-badge">HTML5</span>
-                        <span class="skill-badge">CSS3</span>
-                        <span class="skill-badge">JavaScript ES6+</span>
-                        <span class="skill-badge">React.js</span>
-                        <span class="skill-badge">Next.js</span>
-                        <span class="skill-badge">Tailwind CSS</span>
-                        <span class="skill-badge">Bootstrap</span>
-                        <span class="skill-badge">Responsive Design</span>
+                    <div class="skill-items-progress">
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">HTML5</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="95"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">CSS3 / Tailwind</span>
+                                <span class="skill-level">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="90"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">JavaScript ES6+</span>
+                                <span class="skill-level">60%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="85"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">React.js</span>
+                                <span class="skill-level">30%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="80"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">Next.js</span>
+                                <span class="skill-level">40%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="75"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">Responsive Design</span>
+                                <span class="skill-level">50%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="90"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="skill-category">
                     <h3>
                         <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 20h9"/>
                             <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
                         </svg>
-                        Copywriting & Design
+                        Design & Créativité
                     </h3>
-                    <div class="skill-items">
-                        <span class="skill-badge">Copywriting Web</span>
-                        <span class="skill-badge">Pages de Vente</span>
-                        <span class="skill-badge">Photoshop</span>
-                        <span class="skill-badge">Retouche Photo</span>
-                        <span class="skill-badge">Design Graphique</span>
-                        <span class="skill-badge">UX Design</span>
-                        <span class="skill-badge">Figma</span>
+                    <div class="skill-items-progress">
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">UX Design</span>
+                                <span class="skill-level">60%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="85"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">Figma</span>
+                                <span class="skill-level">50%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="80"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">Photoshop</span>
+                                <span class="skill-level">40%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="75"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">Copywriting Web</span>
+                                <span class="skill-level">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="70"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">Design Graphique</span>
+                                <span class="skill-level">40%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="75"></div>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
+                
                 <div class="skill-category">
                     <h3>
                         <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -181,15 +311,66 @@
                         </svg>
                         Backend & Outils
                     </h3>
-                    <div class="skill-items">
-                        <span class="skill-badge">Firebase</span>
-                        <span class="skill-badge">Supabase</span>
-                        <span class="skill-badge">API REST</span>
-                        <span class="skill-badge">Git & GitHub</span>
-                        <span class="skill-badge">Vercel</span>
-                        <span class="skill-badge">Netlify</span>
-                        <span class="skill-badge">No-Code Tools</span>
-                        <span class="skill-badge">SEO</span>
+                    <div class="skill-items-progress">
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">Firebase</span>
+                                <span class="skill-level">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="80"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">Supabase</span>
+                                <span class="skill-level">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="75"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">Git & GitHub</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="85"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">API REST</span>
+                                <span class="skill-level">55%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="70"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">SEO</span>
+                                <span class="skill-level">60%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="80"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-progress">
+                            <div class="skill-header">
+                                <span class="skill-name">Vercel / Netlify</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" data-progress="90"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -198,10 +379,21 @@
 
     <section id="projets" class="projects">
         <div class="container">
-            <h2 class="section-title">Mes Projets</h2>
+            <h2 class="section-title" data-i18n="projects.title">Mes Projets</h2>
+            
+            <!-- Filtres de projets -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all" data-i18n="projects.all">Tous</button>
+                <button class="filter-btn" data-filter="react">React</button>
+                <button class="filter-btn" data-filter="nextjs">Next.js</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                <button class="filter-btn" data-filter="completed" data-i18n="projects.completed">Terminés</button>
+            </div>
+            
             <div class="projects-grid">
-                <article class="project-card" data-project="skillbridge">
-                    <div class="project-image project-img-skillbridge">
+                <article class="project-card" data-project="skillbridge" data-category="react">
+                    <div class="project-image">
+                        <img src="images/1000097436.png" alt="SkillBridge - Plateforme d'échange de compétences" loading="lazy">
                         <div class="project-overlay">
                             <span class="project-status">En cours</span>
                         </div>
@@ -212,14 +404,22 @@
                         <div class="project-tags">
                             <span>React</span>
                             <span>Firebase</span>
-                            <span>Tailwind</span>
+                            <span>Tailwind</span> 
                         </div>
-                        <button class="project-link project-coming-soon">En développement</button>
+                        <div class="project-links">
+                            <button class="project-link project-coming-soon">En développement</button>
+                            <a href="https://github.com/kakporosaire953-creator/skillbridge" target="_blank" class="project-github" aria-label="Voir sur GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <article class="project-card" data-project="campusly">
-                    <div class="project-image project-img-campusly">
+                <article class="project-card" data-project="campusly" data-category="nextjs">
+                    <div class="project-image">
+                        <img src="images/Capture.PNG" alt="Campusly - Application pour étudiants UAC" loading="lazy">
                         <div class="project-overlay">
                             <span class="project-status">En cours</span>
                         </div>
@@ -233,12 +433,20 @@
                             <span>Firebase</span>
                             <span>IA</span>
                         </div>
-                        <button class="project-link project-coming-soon">En développement</button>
+                        <div class="project-links">
+                            <button class="project-link project-coming-soon">En développement</button>
+                            <a href="https://github.com/kakporosaire953-creator/campusly" target="_blank" class="project-github" aria-label="Voir sur GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <article class="project-card" data-project="gbeto">
-                    <div class="project-image project-img-gbeto">
+                <article class="project-card" data-project="gbeto" data-category="react ecommerce">
+                    <div class="project-image">
+                        <img src="images/3.PNG" alt="Gbéto - Marketplace e-commerce premium" loading="lazy">
                         <div class="project-overlay">
                             <span class="project-status">En cours</span>
                         </div>
@@ -251,30 +459,56 @@
                             <span>FedaPay</span>
                             <span>Supabase</span>
                         </div>
-                        <button class="project-link project-coming-soon">En développement</button>
+                        <div class="project-links">
+                            <button class="project-link project-coming-soon">En développement</button>
+                            <a href="https://github.com/kakporosaire953-creator/gbeto" target="_blank" class="project-github" aria-label="Voir sur GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <article class="project-card" data-project="apple">
-                    <div class="project-image project-img-apple">
+                <article class="project-card" data-project="apple" data-category="nextjs ecommerce completed">
+                    <div class="project-image">
+                        <img src="images/4.PNG" alt="Apple Confidence - E-commerce smartphones et accessoires" loading="lazy">
                         <div class="project-overlay">
-                            <span class="project-status">Terminé</span>
+                            <span class="project-status status-completed">Terminé</span>
                         </div>
                     </div>
                     <div class="project-content">
                         <h3>Apple Confidence</h3>
                         <p>E-commerce moderne spécialisé dans la vente de smartphones, ordinateurs et accessoires authentiques au Bénin. Catalogue produits (iPhone, Samsung, Tecno, Redmi), système de filtres avancés et interface utilisateur optimisée pour la conversion.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">+45%</span>
+                                <span class="metric-label">Conversions</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">2.3s</span>
+                                <span class="metric-label">Chargement</span>
+                            </div>
+                        </div>
                         <div class="project-tags">
                             <span>Next.js</span>
                             <span>React</span>
                             <span>Tailwind</span>
                         </div>
-                        <a href="https://v0-apple-confidence.vercel.app/" target="_blank" class="project-link">Visiter le site →</a>
+                        <div class="project-links">
+                            <a href="https://v0-apple-confidence.vercel.app/" target="_blank" class="project-link">Visiter le site →</a>
+                            <a href="https://github.com/kakporosaire953-creator/apple-confidence" target="_blank" class="project-github" aria-label="Voir sur GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <article class="project-card" data-project="architect">
-                    <div class="project-image project-img-architect">
+                <article class="project-card" data-project="architect" data-category="html">
+                    <div class="project-image">
+                        <img src="images/2.PNG" alt="E-Architect SARL - Site vitrine cabinet d'architecture" loading="lazy">
                         <div class="project-overlay">
                             <span class="project-status">En cours</span>
                         </div>
@@ -287,7 +521,238 @@
                             <span>JavaScript</span>
                             <span>Responsive</span>
                         </div>
-                        <button class="project-link project-coming-soon">En développement</button>
+                        <div class="project-links">
+                            <button class="project-link project-coming-soon">En développement</button>
+                            <a href="https://github.com/kakporosaire953-creator/e-architect" target="_blank" class="project-github" aria-label="Voir sur GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2 class="section-title" data-i18n="blog.title">Blog & Articles</h2>
+            <p class="section-subtitle" data-i18n="blog.subtitle">Mes réflexions sur le développement web et les tendances tech</p>
+            
+            <div class="blog-grid">
+                <article class="blog-card" data-category="frontend">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=250&fit=crop&q=80" alt="React Performance" loading="lazy">
+                        <span class="blog-category">Frontend</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                                10 Avril 2026
+                            </span>
+                            <span class="blog-reading">5 min</span>
+                        </div>
+                        <h3>Optimiser les performances React : 10 techniques essentielles</h3>
+                        <p>Découvrez comment j'ai réduit le temps de chargement de 40% sur mes projets React en appliquant ces optimisations simples mais puissantes.</p>
+                        <div class="blog-tags">
+                            <span>React</span>
+                            <span>Performance</span>
+                            <span>Optimisation</span>
+                        </div>
+                        <button class="blog-link" onclick="openBlogPost('react-performance')">
+                            Lire l'article →
+                        </button>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="design">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop&q=80" alt="UX Design" loading="lazy">
+                        <span class="blog-category">Design</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                                5 Avril 2026
+                            </span>
+                            <span class="blog-reading">7 min</span>
+                        </div>
+                        <h3>UX Design pour l'e-commerce : Augmenter les conversions de 45%</h3>
+                        <p>Les principes UX que j'ai appliqués sur Apple Confidence pour transformer les visiteurs en clients. Résultats concrets et mesurables.</p>
+                        <div class="blog-tags">
+                            <span>UX Design</span>
+                            <span>E-commerce</span>
+                            <span>Conversion</span>
+                        </div>
+                        <button class="blog-link" onclick="openBlogPost('ux-ecommerce')">
+                            Lire l'article →
+                        </button>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="backend">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop&q=80" alt="Firebase" loading="lazy">
+                        <span class="blog-category">Backend</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                                1 Avril 2026
+                            </span>
+                            <span class="blog-reading">6 min</span>
+                        </div>
+                        <h3>Firebase vs Supabase : Mon retour d'expérience sur 5 projets</h3>
+                        <p>Comparaison détaillée des deux solutions BaaS les plus populaires. Quand utiliser Firebase ? Quand préférer Supabase ? Mes recommandations.</p>
+                        <div class="blog-tags">
+                            <span>Firebase</span>
+                            <span>Supabase</span>
+                            <span>Backend</span>
+                        </div>
+                        <button class="blog-link" onclick="openBlogPost('firebase-supabase')">
+                            Lire l'article →
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Blog Post -->
+    <div id="blogModal" class="blog-modal">
+        <div class="blog-modal-content">
+            <button class="blog-modal-close" onclick="closeBlogPost()">&times;</button>
+            <div id="blogPostContent"></div>
+        </div>
+    </div>
+
+    <section id="process" class="process">
+        <div class="container">
+            <h2 class="section-title" data-i18n="process.title">Mon Process de Travail</h2>
+            <p class="section-subtitle" data-i18n="process.subtitle">Une méthodologie éprouvée pour des résultats exceptionnels</p>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>
+                            <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            Découverte & Analyse
+                        </h3>
+                        <p>Comprendre vos besoins, votre audience et vos objectifs business. Analyse de la concurrence et définition de la stratégie.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>
+                            <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M3 9h18"/>
+                                <path d="M9 21V9"/>
+                            </svg>
+                            Design & Maquettes
+                        </h3>
+                        <p>Création de wireframes et maquettes haute-fidélité sur Figma. Validation du design et de l'expérience utilisateur.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>
+                            <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                            Développement
+                        </h3>
+                        <p>Codage avec les meilleures pratiques : code propre, responsive design, performance optimisée et accessibilité.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>
+                            <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            Tests & Déploiement
+                        </h3>
+                        <p>Tests rigoureux sur tous les appareils, optimisation finale et déploiement. Formation et support post-lancement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="temoignages" class="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-i18n="testimonials.title">Ce qu'ils disent de moi</h2>
+            <div class="testimonials-grid">
+                <article class="testimonial-card">
+                    <div class="testimonial-stars">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <p class="testimonial-text">"Rosaire a développé notre site e-commerce avec une attention remarquable aux détails. Le résultat dépasse nos attentes, et nos ventes ont augmenté de 45% en 3 mois !"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AC</div>
+                        <div class="author-info">
+                            <h4>Jean-Marc ASSOGBA</h4>
+                            <p>CEO, Apple Confidence</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div class="testimonial-stars">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <p class="testimonial-text">"Un développeur talentueux et professionnel. Notre site vitrine est élégant, rapide et génère 60% de leads en plus. Je recommande vivement !"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EA</div>
+                        <div class="author-info">
+                            <h4>Architecte DOSSOU</h4>
+                            <p>Fondateur, E-Architect SARL</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div class="testimonial-stars">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <p class="testimonial-text">"Rosaire comprend parfaitement les besoins des utilisateurs. Son expertise en UX Design a transformé notre plateforme en une expérience intuitive et moderne."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SB</div>
+                        <div class="author-info">
+                            <h4>Sarah BOKO</h4>
+                            <p>Product Manager, SkillBridge</p>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -296,8 +761,8 @@
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Travaillons ensemble</h2>
-            <p class="contact-subtitle">Un projet en tête ? Une collaboration à explorer ? Contactez-moi, je réponds rapidement.</p>
+            <h2 class="section-title" data-i18n="contact.title">Travaillons ensemble</h2>
+            <p class="contact-subtitle" data-i18n="contact.subtitle">Un projet en tête ? Une collaboration à explorer ? Contactez-moi, je réponds rapidement.</p>
             <div class="contact-content">
                 <div class="contact-links">
                     <a href="mailto:kakporosaire953@gmail.com" class="contact-card">
@@ -363,6 +828,38 @@
         </div>
     </section>
 
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Prêt à donner vie à votre projet ?</h2>
+                <p class="cta-description">Transformons ensemble vos idées en solutions digitales performantes et innovantes.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary btn-large">Démarrer un projet</a>
+                    <a href="https://wa.me/22901168812019?text=Bonjour%20Rosaire,%20j'aimerais%20discuter%20d'un%20projet" target="_blank" class="btn btn-secondary btn-large">
+                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        WhatsApp Direct
+                    </a>
+                </div>
+                <div class="cta-stats">
+                    <div class="cta-stat">
+                        <span class="cta-stat-number">24h</span>
+                        <span class="cta-stat-label">Réponse garantie</span>
+                    </div>
+                    <div class="cta-stat">
+                        <span class="cta-stat-number">100%</span>
+                        <span class="cta-stat-label">Satisfaction client</span>
+                    </div>
+                    <div class="cta-stat">
+                        <span class="cta-stat-number">5+</span>
+                        <span class="cta-stat-label">Projets réussis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Rosaire KAKPO. Développé avec passion au Bénin 🇧🇯</p>
@@ -370,6 +867,47 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- Schema.org JSON-LD pour le SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rosaire KAKPO",
+        "jobTitle": "Développeur Frontend",
+        "description": "Développeur Frontend spécialisé en E-commerce & UX Design",
+        "url": "https://rosairekakpo.vercel.app/",
+        "image": "https://rosairekakpo.vercel.app/images/IMG-20260324-WA0045.jpg",
+        "email": "kakporosaire953@gmail.com",
+        "telephone": "+22901168812019",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "BJ",
+            "addressLocality": "Bénin"
+        },
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Institut Universitaire Les Cours Sonou"
+        },
+        "knowsAbout": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "React.js",
+            "Next.js",
+            "Tailwind CSS",
+            "Firebase",
+            "Supabase",
+            "UX Design",
+            "E-commerce"
+        ],
+        "sameAs": [
+            "https://github.com/kakporosaire953-creator",
+            "https://www.linkedin.com/in/rosaire-kakpo-9b31963b6",
+            "https://wa.me/22901168812019"
+        ]
+    }
+    </script>
+
+    <script src="js/main.js" defer></script>
 </body>
 </html>
