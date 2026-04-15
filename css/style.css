@@ -1065,28 +1065,38 @@ section {
 
     .hero-content {
         order: 2;
+        animation: slideUpMobile 0.8s ease-out;
     }
 
     .hero-name {
         font-size: 2.8rem;
+        animation: fadeInScale 1s ease-out 0.2s both;
     }
 
     .hero-title {
         font-size: 1.3rem;
+        animation: fadeInUp 0.8s ease-out 0.4s both;
     }
 
     .hero-description {
         max-width: 100%;
+        animation: fadeInUp 0.8s ease-out 0.6s both;
     }
 
     .hero-buttons {
         justify-content: center;
         flex-wrap: wrap;
         gap: 1rem;
+        animation: fadeInUp 0.8s ease-out 0.8s both;
     }
 
     .hero-buttons .btn {
         min-width: 200px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hero-buttons .btn:active {
+        transform: scale(0.95);
     }
 
     .hero-image {
@@ -1096,6 +1106,7 @@ section {
         order: 1;
         margin-bottom: 2rem;
         width: 100%;
+        animation: zoomInMobile 1s ease-out;
     }
 
     .profile-image-container {
@@ -1113,15 +1124,18 @@ section {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+        animation: float 3s ease-in-out infinite;
     }
 
     .profile-ring {
         width: 270px;
         height: 270px;
+        animation: pulse-ring-mobile 2s ease-in-out infinite;
     }
 
     .section-title {
         font-size: 2.2rem;
+        animation: fadeInUp 0.6s ease-out;
     }
 
     .about-stats {
@@ -1129,26 +1143,156 @@ section {
         gap: 1.5rem;
     }
 
+    .stat {
+        animation: slideInLeft 0.6s ease-out;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .stat:active {
+        transform: scale(0.98);
+    }
+
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+
+    .skill-category {
+        animation: fadeInUp 0.6s ease-out;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .skill-category:active {
+        transform: scale(0.98);
     }
 
     .projects-grid {
         grid-template-columns: 1fr;
     }
 
+    .project-card {
+        animation: fadeInUp 0.6s ease-out;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card:active {
+        transform: scale(0.98);
+    }
+
     .contact-links {
         grid-template-columns: 1fr;
     }
 
+    .contact-card {
+        animation: fadeInUp 0.6s ease-out;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .contact-card:active {
+        transform: scale(0.98);
+    }
+
     .whatsapp-form {
         padding: 2rem;
+        animation: fadeInUp 0.8s ease-out;
     }
 
     .certification-card {
         flex-direction: column;
         text-align: center;
         gap: 1.5rem;
+        animation: fadeInUp 0.6s ease-out;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .certification-card:active {
+        transform: scale(0.98);
+    }
+
+    /* Animations mobiles modernes */
+    @keyframes slideUpMobile {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes zoomInMobile {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes fadeInScale {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes pulse-ring-mobile {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 0.3;
+        }
+        50% {
+            transform: scale(1.05);
+            opacity: 0.1;
+        }
+    }
+
+    /* Smooth scroll pour mobile */
+    html {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Amélioration des transitions tactiles */
+    * {
+        -webkit-tap-highlight-color: rgba(255, 140, 97, 0.2);
     }
 }
 
