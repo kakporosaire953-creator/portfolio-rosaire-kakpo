@@ -102,7 +102,7 @@ if (whatsappForm) {
         
         if (name && message) {
             const whatsappMessage = `Bonjour, je suis ${name}. ${message}`;
-            const whatsappURL = `https://wa.me/22901168812019?text=${encodeURIComponent(whatsappMessage)}`;
+            const whatsappURL = `https://wa.me/22968812019?text=${encodeURIComponent(whatsappMessage)}`;
             
             window.open(whatsappURL, '_blank');
             
