@@ -565,6 +565,43 @@ section {
     border: 1px solid rgba(0, 180, 216, 0.2);
     transition: all 0.3s;
     font-weight: 500;
+    position: relative;
+}
+
+.skill-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.skill-badge.skill-mastered {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.skill-badge.skill-mastered::before {
+    background: #10b981;
+}
+
+.skill-badge.skill-advanced {
+    border-color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.skill-badge.skill-advanced::before {
+    background: #3b82f6;
+}
+
+.skill-badge.skill-learning {
+    border-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.skill-badge.skill-learning::before {
+    background: #f59e0b;
 }
 
 .skill-badge:hover {
